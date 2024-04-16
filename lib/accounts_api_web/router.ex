@@ -7,6 +7,8 @@ defmodule AccountsApiWeb.Router do
 
   scope "/api", AccountsApiWeb do
     pipe_through :api
+
+    resources "/accounts", AccountController, except: [:new, :edit]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

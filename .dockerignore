@@ -1,0 +1,4 @@
+/_build
+/deps
+/*.tar
+/assets/node_modules
