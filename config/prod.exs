@@ -9,12 +9,14 @@ config :swoosh, local: false
 # Do not print debug messages in production
 config :logger, level: :info
 
-# Runtime production configuration, including reading
-# of environment variables, is done on config/runtime.exs.
-#
+# Finally import the config/prod.secret.exs
+# which should be versioned separately.
+# import_config "prod.secret.exs"
+config :accounts_api, AccountsApiWeb.Endpoint,
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
+  server: true
+
 config :accounts_api, AccountsApi.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: {:system, "DATABASE_URL"},
-  database: "",
-  ssl: true,
-  pool_size: 2
+  url: System.get_env("DATABASE_URL"),
+  pool_size: 1 # Free tier db only allows 1 connection
