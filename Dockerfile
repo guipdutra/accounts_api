@@ -32,4 +32,3 @@ ENV MIX_ENV=prod \
 
 # Wait for the database to be ready and run migrations
 CMD ["./wait-for", "db:5432", "--", "sh", "-c", "mix ecto.setup && mix phx.server"]
-
