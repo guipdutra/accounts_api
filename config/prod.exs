@@ -22,6 +22,6 @@ config :accounts_api, AccountsApiWeb.Endpoint,
 config :accounts_api, AccountsApi.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: {:system, "DATABASE_URL"},
-  database: "accounts_api",
+  database: "",
   ssl: true,
   pool_size: 2
