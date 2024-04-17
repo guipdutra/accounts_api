@@ -17,7 +17,7 @@ config :accounts_api, AccountsApiWeb.Endpoint,
   server: true
 
 config :accounts_api, AccountsApi.Repo,
-  socket_options: [:inet6],
+  ssl_opts: [verify: :verify_none],
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   ssl: true,
