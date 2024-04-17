@@ -17,8 +17,8 @@ config :accounts_api, AccountsApiWeb.Endpoint,
   server: true
 
 config :accounts_api, AccountsApi.Repo,
-  ssl_opts: [verify: :verify_none],
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   ssl: true,
+  ssl_opts: [verify: :verify_none],
   pool_size: 2 # Free tier db only allows 1 connection
